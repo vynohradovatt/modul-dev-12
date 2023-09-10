@@ -19,7 +19,7 @@ public class NoteService {
         return note;
     }
 
-    public void deleteById(long id) {
+    public Object deleteById(long id) {
         for (Note note : notes) {
             if (note.getId() == id) {
                 notes.remove(note);
@@ -27,6 +27,7 @@ public class NoteService {
                 break;
             }
         }
+        return null;
     }
 
     public void update(Note note, String title, String content) {

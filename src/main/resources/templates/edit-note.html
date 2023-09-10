@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note</title>
+</head>
+<body>
+<h1>Edit note:</h1>
+
+<form th:action="@{'/note/edit/' + ${note.id}}" method="post">
+    <h2>Update Title:</h2>
+    <input type="text" name="title" th:value="${note.title}"/>
+    <h2>Update Content:</h2>
+    <textarea name="content" rows="4" cols="50" th:text="${note.content}"></textarea>
+    <button type="submit">Save Changes</button>
+</form>
+
+</body>
+</html>
