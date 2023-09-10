@@ -5,8 +5,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
 </head>
 <style>
+
+body {
+        background-color: #E0FFFF;
+    }
+
+    h1 {
+        color: #4682B4;
+        text-align: center;
+    }
     table {
         width: 100%;
         border-collapse: collapse;
@@ -31,7 +42,21 @@
         text-align: left;
         padding: 8px;
     }
+
+    .edit-button {
+        background-color: #4682B4;
+        color: white;
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
+    .delete-button {
+        background-color: #4682B4;
+        color: white;
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
 </style>
+
 <body>
 <h1>List of all notes:</h1>
 
@@ -52,12 +77,12 @@
         <td th:text="${note.content}"></td>
         <td>
         <form th:action="@{edit} + '/' + ${note.id}" method="get">
-            <button type="submit">Edit</button>
+            <button type="submit" class="edit-button">Edit</button>
         </form>
         </td>
         <td>
             <form th:action="@{delete} + '/' + ${note.id}" method="post">
-                <button type="submit">Delete</button>
+                <button type="submit" class="delete-button">Delete</button>
             </form>
         </td>
     </tr>

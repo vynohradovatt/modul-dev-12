@@ -6,6 +6,21 @@
     <meta charset="UTF-8">
     <title>Note</title>
 </head>
+<style>
+
+body {
+        background-color: #E0FFFF;
+    }
+
+    .save-button {
+        background-color: #4682B4;
+        color: white;
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
+
+
+</style>
 <body>
 <h1>Edit note:</h1>
 
@@ -14,7 +29,7 @@
     <input type="text" name="title" th:value="${note.title}"/>
     <h2>Update Content:</h2>
     <textarea name="content" rows="4" cols="50" th:text="${note.content}"></textarea>
-    <button type="submit">Save Changes</button>
+    <button type="submit" class="save-button">Save Changes</button>
 </form>
 
 </body>
