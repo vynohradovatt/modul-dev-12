@@ -76,12 +76,14 @@ body {
         <td th:text="${note.title}"></td>
         <td th:text="${note.content}"></td>
         <td>
-        <form th:action="@{edit} + '/' + ${note.id}" method="get">
-            <button type="submit" class="edit-button">Edit</button>
-        </form>
+            <form th:action="@{'/note/edit'}" method="get">
+                <input type="hidden" name="id" th:value="${note.id}" />
+                <button type="submit" class="edit-button">Edit</button>
+            </form>
         </td>
         <td>
-            <form th:action="@{delete} + '/' + ${note.id}" method="post">
+            <form th:action="@{'/note/delete'}" method="post">
+                <input type="hidden" name="id" th:value="${note.id}" />
                 <button type="submit" class="delete-button">Delete</button>
             </form>
         </td>

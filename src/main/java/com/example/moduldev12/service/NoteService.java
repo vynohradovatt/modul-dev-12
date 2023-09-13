@@ -1,4 +1,4 @@
-package com.example.moduldev12.CRUD;
+package com.example.moduldev12.service;
 
 import com.example.moduldev12.entity.Note;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,7 @@
-package com.example.moduldev12.mvc;
+package com.example.moduldev12.controller;
 
-import com.example.moduldev12.CRUD.NoteService;
+import com.example.moduldev12.service.NoteService;
 import com.example.moduldev12.entity.Note;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,26 +21,23 @@ public class NoteController {
         return  result;
     }
 
-    @PostMapping(value = ("/delete/{id}"))
-    public String postDelete(@PathVariable(name = "id", required = false) long id){
+    @PostMapping(value = ("/delete"))
+    public String deleteNote(@RequestParam Long id){
         noteService.deleteById(id);
         return "redirect:/note/list";
-
     }
 
-    @GetMapping(value = "/edit/{id}")
-    public ModelAndView toUpdateNote(@PathVariable(name = "id", required = false) long id){
+    @GetMapping(value = "/edit")
+    public ModelAndView editNote(@RequestParam Long id){
         ModelAndView result = new ModelAndView("edit-note");
-        result.addObject("update", "Починаемо редагувати нотатки з id= " + id);
         Note note = noteService.getById(id);
         result.addObject("note", note);
         return  result;
-
     }
 
-    @PostMapping(value = ("/edit/{id}"))
-    public ModelAndView postDelete(
-            @PathVariable(name = "id", required = false) long id,
+    @PostMapping(value = ("/edit"))
+    public ModelAndView updateNote(
+            @RequestParam Long id,
             @RequestParam String title,
             @RequestParam String content){
 
